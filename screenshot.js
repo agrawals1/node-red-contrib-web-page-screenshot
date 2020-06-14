@@ -27,7 +27,8 @@ module.exports = function (RED) {
                 const option = {
                     type: 'png',
                     headless: true,
-                    encoding: 'base64'
+                    encoding: 'base64',
+                    fullPage: true
                     
                 };
                 const page = await browser.newPage();

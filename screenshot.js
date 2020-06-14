@@ -5,9 +5,10 @@ module.exports = function (RED) {
         let path = config.path;
         let puppeteer = require('puppeteer');
         let option = {};
-
+        
         if (path) {
             option.executablePath = path;
+            option.args = ['--no-sandbox', '--disable-setuid-sandbox'];
         }
 
         node.on('input', function (msg) {
@@ -26,8 +27,8 @@ module.exports = function (RED) {
                 const option = {
                     type: 'png',
                     headless: true,
-                    encoding: 'base64',
-                    args: ['--no-sandbox', '--disable-setuid-sandbox']
+                    encoding: 'base64'
+                    
                 };
                 const page = await browser.newPage();
                 await page.goto(url);

@@ -27,7 +27,7 @@ module.exports = function (RED) {
                     type: 'png',
                     headless: true,
                     encoding: 'base64',
-                    args: ['--no-sandbox']
+                    args: ['--no-sandbox', '--disable-setuid-sandbox']
                 };
                 const page = await browser.newPage();
                 await page.goto(url);

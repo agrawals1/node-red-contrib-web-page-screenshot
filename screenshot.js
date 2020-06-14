@@ -26,7 +26,7 @@ module.exports = function (RED) {
                 const option = {
                     type: 'png',
                     fullPage: true,
-                    encoding: 'base64'
+                    encoding: 'base64',
                     args: ['--no-sandbox']
                 };
                 const page = await browser.newPage();

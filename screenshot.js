@@ -27,6 +27,7 @@ module.exports = function (RED) {
                     type: 'png',
                     fullPage: true,
                     encoding: 'base64'
+                    args: ['--no-sandbox']
                 };
                 const page = await browser.newPage();
                 await page.goto(url);

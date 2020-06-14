@@ -3,6 +3,7 @@ module.exports = function (RED) {
         RED.nodes.createNode(this, config);
         let node = this;
         let path = config.path;
+        let delay = config.delay;
         let puppeteer = require('puppeteer');
         let option = {};
         
@@ -35,7 +36,7 @@ module.exports = function (RED) {
                 await page.goto(url);
                 var start = new Date().getTime();
                var end = start;
-               while(end < start + 2000) {
+               while(end < start + delay) {
                  end = new Date().getTime();
                }
                 const base64String = await page.screenshot(option);

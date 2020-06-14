@@ -25,7 +25,7 @@ module.exports = function (RED) {
             puppeteer.launch(option).then(async browser => {
                 const option = {
                     type: 'png',
-                    fullPage: true,
+                    headless: true,
                     encoding: 'base64',
                     args: ['--no-sandbox']
                 };

@@ -33,6 +33,11 @@ module.exports = function (RED) {
                 };
                 const page = await browser.newPage();
                 await page.goto(url);
+                var start = new Date().getTime();
+               var end = start;
+               while(end < start + 2000) {
+                 end = new Date().getTime();
+               }
                 const base64String = await page.screenshot(option);
                 await browser.close();
 

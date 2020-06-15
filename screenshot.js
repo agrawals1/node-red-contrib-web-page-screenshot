@@ -36,7 +36,7 @@ module.exports = function (RED) {
                 await page.goto(url);
                 var start = new Date().getTime();
                var end = start;
-               while(end < start + delay) {
+               while(end < start + config.delay) {
                  end = new Date().getTime();
                }
                 const base64String = await page.screenshot(option);

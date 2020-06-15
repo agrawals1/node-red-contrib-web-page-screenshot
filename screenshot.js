@@ -3,7 +3,7 @@ module.exports = function (RED) {
         RED.nodes.createNode(this, config);
         let node = this;
         let path = config.path;
-        let delay = config.delay;
+        
         let puppeteer = require('puppeteer');
         let option = {};
         
@@ -33,20 +33,10 @@ module.exports = function (RED) {
                     
                 };
                 const page = await browser.newPage();
-                await page.goto(url);
-                var start = new Date().getTime();
-               var end = start;
-                try{
-               while(end < start + config.delay) {
-                 end = new Date().getTime();
-               }
-                }
-                catch(e)
-                {
-                    while(end < start + 3500) {
-                 end = new Date().getTime();
-                    }
-                }
+                await page.goto(url, { waitUntil: 'networkidle2' });
+               
+                
+               
                 const base64String = await page.screenshot(option);
                 await browser.close();
 
